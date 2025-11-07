@@ -84,6 +84,7 @@ O sistema é composto por três camadas principais:
 - Testes mostraram **resposta média de 120 ms** entre sensor e publicação MQTT e **80 ms** entre comando MQTT e ação do atuador.
 
  **Imagem do protótipo em funcionamento:**
+ 
  ![Protótipo](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/Captura%20de%20tela%202025-11-07%20163050.png)
 
  **Vídeo de demonstração (não listado no YouTube):**  
