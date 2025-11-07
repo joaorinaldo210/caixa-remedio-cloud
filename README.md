@@ -107,8 +107,7 @@ O sistema é composto por três camadas principais:
 ```
 
 ---
-
-## Referências
+## Referência
 - HiveMQ. *MQTT Essentials – Part 1: Introducing MQTT.* (2024).  
 - Espressif Systems. *ESP32 Datasheet.* (2024).  
 - IBM Developer. *Why MQTT is a good fit for IoT.* (2021).  
