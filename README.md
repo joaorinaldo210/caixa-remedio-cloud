@@ -1,6 +1,6 @@
-# 🩺 Caixa de Remédios Inteligente (PillBox IoT)
+# Caixa de Remédios Inteligente (PillBox IoT)
 
-## 🎯 Descrição do Projeto
+## Descrição do Projeto
 Este projeto apresenta uma **Caixa de Remédios Inteligente** (PillBox IoT) desenvolvida para auxiliar pacientes na adesão correta a tratamentos médicos.  
 O sistema utiliza o **microcontrolador ESP32** para controlar LEDs, botões, sensor LDR e buzzer, com **comunicação MQTT** para enviar informações sobre o uso do medicamento para cuidadores ou sistemas remotos.  
 
@@ -8,18 +8,18 @@ A solução busca **promover autonomia e segurança** na administração de rem�
 
 ---
 
-## ⚙️ Funcionalidades
-- ⏰ Lembrar o usuário dos horários de medicação  
-- 💡 Indicar com LEDs o horário do remédio (manhã, tarde, noite e extra)  
-- 🔘 Registrar a confirmação da dose por botão  
-- 🌞 Detectar a abertura da tampa por sensor LDR  
-- 🔔 Emitir alertas sonoros com buzzer  
-- ☁️ Enviar e receber mensagens via **MQTT (HiveMQ Public Broker)**  
-- 📶 Funcionar localmente e com monitoramento remoto  
+## Funcionalidades
+- Lembrar o usuário dos horários de medicação  
+- Indicar com LEDs o horário do remédio (manhã, tarde, noite e extra)  
+- Registrar a confirmação da dose por botão  
+- Detectar a abertura da tampa por sensor LDR  
+- Emitir alertas sonoros com buzzer  
+- Enviar e receber mensagens via **MQTT (HiveMQ Public Broker)**  
+- Funcionar localmente e com monitoramento remoto  
 
 ---
 
-## 🧩 Componentes Utilizados
+## Componentes Utilizados
 
 | Componente | Função |
 |-------------|--------|
@@ -33,7 +33,7 @@ A solução busca **promover autonomia e segurança** na administração de rem�
 
 ---
 
-## 🧠 Arquitetura e Comunicação
+## Arquitetura e Comunicação
 
 O sistema é composto por três camadas principais:
 
@@ -43,7 +43,7 @@ O sistema é composto por três camadas principais:
 | **Broker MQTT (HiveMQ)** | Intermediação da comunicação entre dispositivos |
 | **Aplicação/Dashboard** | Visualização e controle remoto |
 
-### 🔄 Fluxo de Operação
+### Fluxo de Operação
 1. O ESP32 conecta-se à rede Wi-Fi.  
 2. Estabelece conexão com o broker público **HiveMQ (broker.hivemq.com, porta 1883)**.  
 3. Publica o status “online”.  
@@ -51,7 +51,7 @@ O sistema é composto por três camadas principais:
 5. Acende LEDs, aciona buzzer e registra eventos.  
 6. Envia confirmações e alertas ao broker via tópicos MQTT.  
 
-### 📡 Estrutura dos Tópicos MQTT
+### Estrutura dos Tópicos MQTT
 
 | Ação | Tópico | Descrição |
 |------|---------|-----------|
@@ -65,7 +65,7 @@ O sistema é composto por três camadas principais:
 
 ---
 
-## 🧰 Especificações Técnicas
+## Especificações Técnicas
 
 - **Microcontrolador:** ESP32 DevKit V1  
 - **Protocolo de comunicação:** MQTT (QoS 1, retained messages e LWT configurado)  
@@ -75,7 +75,7 @@ O sistema é composto por três camadas principais:
 
 ---
 
-## 📈 Resultados
+## Resultados
 
 - O sistema acende o LED correspondente ao horário do remédio.  
 - O buzzer emite som quando o horário chega.  
@@ -83,22 +83,23 @@ O sistema é composto por três camadas principais:
 - O LDR detecta abertura da tampa e gera um evento adicional de confirmação.  
 - Testes mostraram **resposta média de 120 ms** entre sensor e publicação MQTT e **80 ms** entre comando MQTT e ação do atuador.
 
-📸 **Imagem do protótipo em funcionamento:**
+ **Imagem do protótipo em funcionamento:**
 ![Protótipo](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/Captura%20de%20tela%202025-11-07%20163050.png)
 
-🎥 **Vídeo de demonstração (não listado no YouTube):**  
-👉 [Link do vídeo no YouTube](COLE_AQUI_SEU_LINK)
+ **Vídeo de demonstração (não listado no YouTube):**  
+ [Link do vídeo no YouTube](COLE_AQUI_SEU_LINK)
 
 ---
 
-## 📚 Estrutura do Repositório
+## Estrutura do Repositório
 
 ```
 📦 caixa-remedio-cloud
- ┣ 📂 code
- ┃ ┗ main.ino
- ┣ 📂 images
- ┃ ┗ prototipo.jpg
+ ┣ 📜 diagrm.json
+ ┣ 📜 libraries.txt
+ ┣ 📜 sketch.ino
+ ┣ 📜 wokwi-project.txt
+ ┣ 📜 Captura de tela 2025-11-07
  ┣ 📜 README.md
  ┣ 📜 artigo_CaixaRemedios_Inteligente.pdf
  ┣ 📜 projeto.pdf
@@ -106,7 +107,7 @@ O sistema é composto por três camadas principais:
 
 ---
 
-## 🧾 Referências
+## Referências
 - HiveMQ. *MQTT Essentials – Part 1: Introducing MQTT.* (2024).  
 - Espressif Systems. *ESP32 Datasheet.* (2024).  
 - IBM Developer. *Why MQTT is a good fit for IoT.* (2021).  
@@ -115,6 +116,6 @@ O sistema é composto por três camadas principais:
 
 ---
 
-## 👩‍🔧 Autores
+## Autores
 **Bruno Otávio Ramos** • **Gabriel Matheus Soares de Carvalho** • **João Rinaldo França Neris**  
 Universidade Presbiteriana Mackenzie – Faculdade de Computação e Informática  
