@@ -1,10 +1,10 @@
-# 💊 Caixa Remédio Nuvem
+# Caixa Remédio Nuvem
 
 Projeto desenvolvido na plataforma [Wokwi](https://wokwi.com) utilizando **ESP32**, com integração ao **HiveMQ Cloud (MQTT)** para monitoramento e controle remoto de uma caixa de remédios inteligente.
 
 ---
 
-## 📡 Conexão com o HiveMQ
+## Conexão com o HiveMQ
 
 - **Servidor MQTT:** `broker.hivemq.com`  
 - **Porta:** `1883`  
@@ -16,7 +16,7 @@ Projeto desenvolvido na plataforma [Wokwi](https://wokwi.com) utilizando **ESP32
 
 ---
 
-## ⚙️ Código-fonte principal (`main.ino`)
+## Código-fonte principal (`main.ino`)
 
 ```cpp
 #include <WiFi.h>
@@ -68,14 +68,14 @@ void callback(char* topic, byte* payload, unsigned int length) {
   String t = String(topic);
   Serial.print("MQTT recebido: "); Serial.println(t);
 
-  // ✅ Comando MQTT para buzzer
+  // Comando MQTT para buzzer
   if (t.endsWith("/comando/buzzer")) {
     tone(BUZZER, 1500);
     delay(300);
     noTone(BUZZER);
   }
 
-  // ✅ Comandos MQTT para simular botões
+  // Comandos MQTT para simular botões
   if (t.endsWith("/comando/manha")) { handleButtonPress(0); }
   if (t.endsWith("/comando/tarde")) { handleButtonPress(1); }
   if (t.endsWith("/comando/noite")) { handleButtonPress(2); }
@@ -90,7 +90,7 @@ void conectarWiFi() {
     delay(300);
     Serial.print(".");
   }
-  Serial.println(" ✅ Conectado");
+  Serial.println(" Conectado");
 }
 
 // ------------------------ MQTT ------------------------
@@ -98,7 +98,7 @@ void conectarMQTT() {
   while (!client.connected()) {
     Serial.print("Conectando MQTT...");
     if (client.connect(device_id)) {
-      Serial.println(" ✅ Conectado");
+      Serial.println(" Conectado");
       client.subscribe("pillbox/pillbox01/comando/#");
       client.publish(("pillbox/" + String(device_id) + "/status").c_str(), "online", true);
     } else {
@@ -161,7 +161,7 @@ void setup() {
   client.setCallback(callback);
   configTime(0,0,"pool.ntp.org");
 
-  Serial.println("✅ Sistema iniciado");
+  Serial.println("Sistema iniciado");
 }
 
 // ------------------------ LOOP ------------------------
@@ -169,10 +169,10 @@ void loop() {
   if (!client.connected()) conectarMQTT();
   client.loop();
 
-  // ✅ Tampa aberta
+  // Tampa aberta
   int ldr = analogRead(LDR_PIN);
   if (ldr > 2500) { 
-    Serial.println("⚠️ Tampa aberta detectada!");
+    Serial.println("Tampa aberta detectada!");
     tone(BUZZER, 1500);
     delay(500);
     noTone(BUZZER);
