@@ -173,7 +173,7 @@ Esses testes demonstraram um desempenho consistente, com tempos médios adequado
 ## vi) Vídeo de apresentação
 
 Apresentação completa do projeto e funcionamento do protocolo MQTT (PENDENTE):  
-👉 [Assista ao vídeo no YouTube](COLE_AQUI_O_LINK_DO_VÍDEO)
+ [Assista ao vídeo no YouTube](COLE_AQUI_O_LINK_DO_VÍDEO)
 
 ---
 
