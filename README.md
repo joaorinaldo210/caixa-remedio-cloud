@@ -161,7 +161,7 @@ Resultados e medições
 Durante os testes, foram realizadas medições de tempo de resposta entre os sensores, atuadores e a comunicação MQTT.
 
 **Tabela 1 – Latências agregadas (Sensor→MQTT e Comando→Atuador) do protótipo (ms). Fonte: Autor (2025).**  
-![Tabela de Latências](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/tabela_latencias.pdf)
+![Tabela de Latências](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/tabela_latencias.png)
 
 **Gráfico de desempenho das medições:**  
 ![Gráfico de Medição](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/graficomedicao.png)
