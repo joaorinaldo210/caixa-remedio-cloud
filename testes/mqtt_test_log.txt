@@ -1,0 +1,49 @@
+ Descrição do Funcionamento e Uso
+
+A Caixa Remédio Nuvem é um projeto IoT desenvolvido com ESP32, Wokwi e HiveMQ, que simula uma caixa de remédios inteligente conectada à internet.
+O sistema possui 4 compartimentos de medicamentos (manhã, tarde, noite e extra), cada um com botão e LED indicador, além de um buzzer e um sensor LDR que detecta a abertura da tampa.
+
+Quando o usuário pressiona um botão, o dispositivo:
+
+Acende o LED correspondente ao horário do remédio.
+
+Publica uma mensagem MQTT com a confirmação da dose no broker HiveMQ.
+
+Emite um som (no modo extra) como alerta.
+
+O sistema também:
+
+Detecta tampa aberta (via sensor LDR) e emite um alerta sonoro.
+
+Pode ser controlado remotamente via MQTT, recebendo comandos como ligar buzzer ou simular botões.
+
+Envia automaticamente status e registros em formato JSON.
+
+ Como reproduzir no Wokwi
+
+Acesse o projeto no Wokwi:
+ https://wokwi.com/projects/446834998824109057
+
+Clique em “Start Simulation”.
+
+Abra o Serial Monitor para ver os logs de conexão.
+
+Conecte-se ao HiveMQ WebSocket Client (https://www.hivemq.com/demos/websocket-client/
+) com os dados:
+
+Broker: broker.hivemq.com
+
+Porta: 8000
+
+Tópico: pillbox/#
+
+Publique comandos nos tópicos:
+
+pillbox/pillbox01/comando/manha
+pillbox/pillbox01/comando/tarde
+pillbox/pillbox01/comando/noite
+pillbox/pillbox01/comando/extra
+pillbox/pillbox01/comando/buzzer
+
+
+Observe a resposta no terminal e no painel do HiveMQ.
