@@ -1,49 +1,51 @@
- Descrição do Funcionamento e Uso
-
-A Caixa Remédio Nuvem é um projeto IoT desenvolvido com ESP32, Wokwi e HiveMQ, que simula uma caixa de remédios inteligente conectada à internet.
-O sistema possui 4 compartimentos de medicamentos (manhã, tarde, noite e extra), cada um com botão e LED indicador, além de um buzzer e um sensor LDR que detecta a abertura da tampa.
-
-Quando o usuário pressiona um botão, o dispositivo:
-
-Acende o LED correspondente ao horário do remédio.
-
-Publica uma mensagem MQTT com a confirmação da dose no broker HiveMQ.
-
-Emite um som (no modo extra) como alerta.
-
-O sistema também:
-
-Detecta tampa aberta (via sensor LDR) e emite um alerta sonoro.
-
-Pode ser controlado remotamente via MQTT, recebendo comandos como ligar buzzer ou simular botões.
-
-Envia automaticamente status e registros em formato JSON.
-
- Como reproduzir no Wokwi
-
-Acesse o projeto no Wokwi:
- https://wokwi.com/projects/446834998824109057
-
-Clique em “Start Simulation”.
-
-Abra o Serial Monitor para ver os logs de conexão.
-
-Conecte-se ao HiveMQ WebSocket Client (https://www.hivemq.com/demos/websocket-client/
-) com os dados:
-
+==============================
+LOG DE TESTE MQTT - CAIXA REMÉDIO NUVEM
+Data do teste: 11/11/2025
+Ambiente: Wokwi + HiveMQ Public Broker
 Broker: broker.hivemq.com
+Porta: 1883
+Dispositivo: pillbox01
+==============================
 
-Porta: 8000
+[Conexão Wi-Fi]
+Conectando ao WiFi...
+✅ WiFi conectado - SSID: Wokwi-GUEST
+Endereço IP obtido: 192.168.0.115
 
-Tópico: pillbox/#
+[Conexão MQTT]
+Conectando ao broker...
+✅ MQTT conectado com sucesso
+Tópico de inscrição: pillbox/pillbox01/comando/#
+Tópico de publicação: pillbox/pillbox01/status
+Mensagem publicada: {"dispositivo":"pillbox01","evento":"status","status":"online"}
 
-Publique comandos nos tópicos:
+[Teste de botões físicos no Wokwi]
+Botão manhã pressionado:
+→ Publicado: pillbox/pillbox01/dose
+→ Payload: {"dispositivo":"pillbox01","evento":"dose","horario":"manha","status":"tomada","timestamp":"2025-11-11T20:14:53Z"}
 
-pillbox/pillbox01/comando/manha
-pillbox/pillbox01/comando/tarde
-pillbox/pillbox01/comando/noite
-pillbox/pillbox01/comando/extra
-pillbox/pillbox01/comando/buzzer
+Botão tarde pressionado:
+→ Publicado: pillbox/pillbox01/dose
+→ Payload: {"dispositivo":"pillbox01","evento":"dose","horario":"tarde","status":"tomada","timestamp":"2025-11-11T20:15:20Z"}
 
+[Tampa aberta detectada pelo LDR]
+→ Publicado: pillbox/pillbox01/tampa
+→ Payload: {"sensor":"tampa","status":"aberta","timestamp":"2025-11-11T20:16:03Z"}
+→ Buzzer ativado por segurança
 
-Observe a resposta no terminal e no painel do HiveMQ.
+[Tampa fechada novamente]
+→ Publicado: pillbox/pillbox01/tampa
+→ Payload: {"sensor":"tampa","status":"fechada","timestamp":"2025-11-11T20:16:22Z"}
+
+[Teste de comando remoto via HiveMQ]
+Comando recebido: pillbox/pillbox01/comando/buzzer
+→ Ação: Buzzer ativado por 300ms
+→ Resposta publicada: {"evento":"buzzer","status":"ativado","timestamp":"2025-11-11T20:17:00Z"}
+
+Comando remoto: pillbox/pillbox01/comando/noite
+→ Simulação de dose noturna executada com sucesso
+
+[Status final]
+Dispositivo online e sincronizado com o broker HiveMQ
+Todos os sensores operando corretamente
+==============================
