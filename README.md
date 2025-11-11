@@ -91,7 +91,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 ![LEDs](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/leds.png)
 
 **Botões:**
-![Botões]
+![Botões]!
 (https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/botoes.png)
 
 
