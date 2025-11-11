@@ -92,7 +92,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 **Botões:**
 ![Botões](
-
 https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/botoes.png)
 
 
