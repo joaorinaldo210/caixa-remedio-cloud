@@ -157,7 +157,7 @@ A documentação, código e resultados atendem plenamente aos critérios propost
 
 ---
 
-## Referências
+## Referência
 
 - Documentação do Wokwi — https://docs.wokwi.com/  
 - Broker Público HiveMQ — https://www.hivemq.com/demos/websocket-client/  
