@@ -24,8 +24,9 @@ Ele se conecta via **Wi-Fi** a um **broker MQTT (HiveMQ)**, enviando e recebendo
 - O buzzer emite um som de alerta quando o comando MQTT `buzzer` é recebido ou quando a tampa é aberta.  
 - Todos os eventos são enviados em formato JSON com data e hora sincronizadas via NTP.
 
-**Exemplo visual do projeto (simulação Wokwi):**  
-![Foto do Projeto](assets/foto_projeto.jpg)
+📸 **Exemplo visual do projeto (simulação Wokwi):**  
+![Foto do Projeto](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/foto_projeto.jpg)
+
 
 ---
 
