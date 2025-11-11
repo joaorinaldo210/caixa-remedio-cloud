@@ -170,20 +170,19 @@ Esses testes demonstraram um desempenho consistente, com tempos médios adequado
 
 ---
 
-## 🎥 vi) Vídeo de demonstração
+## vi) Vídeo de apresentação
 
-Apresentação completa do projeto e funcionamento do protocolo MQTT (vídeo não listado):  
+Apresentação completa do projeto e funcionamento do protocolo MQTT (PENDENTE):  
 👉 [Assista ao vídeo no YouTube](COLE_AQUI_O_LINK_DO_VÍDEO)
 
 ---
 
-## 📸 vii) Testes e comunicação MQTT
+## vii) Testes e comunicação MQTT
 
 Durante a simulação e execução do firmware, foi verificada a comunicação bidirecional com o broker HiveMQ.
 
 **Logs e capturas de teste:**  
 ![Teste MQTT](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/testecomunicacaoMQTT.png)  
-![Wokwi Serial Output](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/wokwi_serial_output.txt)
 
 ---
 
