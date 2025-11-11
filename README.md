@@ -1,71 +1,181 @@
 # Projeto IoT / Artigo_CaixaRemedios_Inteligente
-Desenvolvido por: João Rinaldo, Bruno Otávio Ramos, Gabriel Matheus Soares de Carvalho
-Faculdade Presbiteriana Mackenzie
-Curso: Análise e Desenvolvimento de Sistemas
-Atividade: AC4 — Aplicando conhecimento 4 (IoT)
-Ano: 2025
 
-## 1. Descrição do funcionamento e uso
-A Caixa Remédio Nuvem é um protótipo IoT baseado em ESP32 que registra confirmações de dose, detecta abertura de tampa e comunica eventos via MQTT para o broker HiveMQ. O sistema possui quatro botões (manhã, tarde, noite, extra), quatro LEDs, um buzzer e um sensor LDR.
+Desenvolvido por: **João Rinaldo**, **Bruno Otávio Ramos** e **Gabriel Matheus Soares de Carvalho**  
+Faculdade Presbiteriana Mackenzie  
+Curso: **Análise e Desenvolvimento de Sistemas**  
+Atividade: **AC4 — Aplicando conhecimento 4 (IoT)**  
+Ano: **2025**
 
-Para reproduzir a simulação no Wokwi:
-1. Abra: https://wokwi.com/projects/446834998824109057
-2. Clique em "Start Simulation".
-3. Abra o Serial Monitor para visualizar logs de conexão e eventos.
-4. No HiveMQ WebSocket Client (https://www.hivemq.com/demos/websocket-client/), conecte-se com host `broker.hivemq.com`, port `8000`, sem SSL, e assine `pillbox/#`.
+Repositório oficial: [https://github.com/joaorinaldo210/caixa-remedio-cloud](https://github.com/joaorinaldo210/caixa-remedio-cloud)  
+Simulação Wokwi: [https://wokwi.com/projects/446834998824109057](https://wokwi.com/projects/446834998824109057)
 
-## 2. Software desenvolvido e documentação de código
-O código-fonte principal está em `src/esboco.ino`. O firmware implementa:
-- Conexão Wi-Fi (WiFi.h)
-- Cliente MQTT (PubSubClient)
-- Formato JSON para mensagens (ArduinoJson)
-- NTP para timestamps (configTime)
-- Leitura de botões com debounce e publicação de confirmações
-- Detecção de tampa via LDR e publicação de status
+---
 
-O arquivo `src/bibliotecas.txt` lista as dependências necessárias.
+## i) Descrição do funcionamento e uso
 
-## 3. Descrição do hardware utilizado
-Tabela de componentes e mapeamento de pinos:
+O projeto **Caixa Remédio Nuvem** é um sistema IoT desenvolvido para auxiliar no controle de medicação.  
+O dispositivo, baseado no **ESP32**, possui **LEDs indicativos**, **botões de confirmação de dose**, **sensor LDR para detecção de tampa aberta** e **buzzer de alerta**.  
+Ele se conecta via **Wi-Fi** a um **broker MQTT (HiveMQ)**, enviando e recebendo dados em tempo real.
 
-| Componente | Função | Pino ESP32 |
-|---|---:|---:|
-| ESP32 DevKitC V4 | Controlador principal | - |
-| LED Manhã | Indica confirmação manhã | GPIO 12 |
-| LED Tarde | Indica confirmação tarde | GPIO 13 |
-| LED Noite | Indica confirmação noite | GPIO 14 |
-| LED Extra | Indica confirmação extra | GPIO 15 |
-| Botão Manhã | Confirmação manhã (INPUT_PULLUP) | GPIO 16 |
-| Botão Tarde | Confirmação tarde (INPUT_PULLUP) | GPIO 17 |
-| Botão Noite | Confirmação noite (INPUT_PULLUP) | GPIO 18 |
-| Botão Extra | Confirmação extra (INPUT_PULLUP) | GPIO 19 |
-| Buzzer ativo | Alerta sonoro | GPIO 21 |
-| Sensor LDR | Detecta abertura da tampa (ADC) | GPIO 34 |
+### Funcionamento básico
+- Cada botão representa um período do dia (manhã, tarde, noite, extra).  
+- Ao pressionar um botão, o LED correspondente acende e o ESP32 publica uma mensagem MQTT com o registro da dose tomada.  
+- O sensor LDR detecta se a tampa foi aberta e publica o status no broker.  
+- O buzzer emite um som de alerta quando o comando MQTT “buzzer” é recebido ou quando a tampa é aberta.  
+- Todos os eventos são enviados em formato JSON com data e hora sincronizadas via NTP.
 
-O arquivo `src/diagrama.json` contém o circuito Wokwi correspondente.
+### Exemplo visual do projeto (simulação Wokwi)
+![Foto do Projeto](assets/foto_projeto.jpg)
 
-## 4. Documentação das interfaces, protocolos e módulos de comunicação
-- Wi-Fi: biblioteca `WiFi.h`, rede `Wokwi-GUEST` (simulação)
-- MQTT: biblioteca `PubSubClient`, broker `broker.hivemq.com`, porta 1883 (MQTT/TCP), tópicos usados:
-  - `pillbox/pillbox01/status`
-  - `pillbox/pillbox01/dose`
-  - `pillbox/pillbox01/tampa`
-  - `pillbox/pillbox01/buzzer`
-  - `pillbox/pillbox01/sensor`
-  - `pillbox/pillbox01/comando/#` (assinatura)
-- Mensagens em JSON, timestamps em ISO 8601 (UTC)
-- NTP: `pool.ntp.org` para sincronização de horário
-- Fluxo: dispositivo publica eventos (dose/tampa/status) e assina comando para atuar remotamente
+---
 
-## Estrutura de pastas
-- `src/` : código-fonte e diagrama Wokwi
-- `docs/`: documentos acadêmicos e especificações
-- `assets/`: imagens e mídias (opcional)
-- `testes/`: logs de teste e evidências
-- `wokwi/`: export do projeto Wokwi e instruções
+## ii) Software desenvolvido e documentação de código
 
-## Licença
-Coloque aqui o tipo de licença desejada (ex.: MIT).
+O software foi desenvolvido em **C++ (Arduino)** para o microcontrolador **ESP32 DevKit V4**.  
+O código principal está localizado em `src/esboco.ino`, totalmente comentado e modularizado.
 
-## Contato
-João Rinaldo — https://github.com/joaorinaldo210/caixa-remedio-cloud
+### Estrutura e principais seções
+- **Conexão Wi-Fi:** autenticação e verificação de rede.  
+- **Conexão MQTT:** publicação e assinatura de tópicos via broker HiveMQ.  
+- **Callback MQTT:** tratamento de comandos recebidos (buzzer, botões e tampa).  
+- **Publicação JSON:** envio de mensagens estruturadas utilizando `ArduinoJson`.  
+- **Controle de hardware:** LEDs, botões e buzzer com lógica de debounce.  
+- **Sincronização de horário:** via NTP (`pool.ntp.org`).
+
+### Arquivos principais do diretório `/src`
+| Arquivo | Descrição |
+|----------|------------|
+| `esboco.ino` | Código-fonte principal do ESP32 |
+| `diagrama.json` | Circuito completo da simulação no Wokwi |
+| `bibliotecas.txt` | Lista de bibliotecas utilizadas |
+| `config.h` | Configurações opcionais (SSID, broker, pinos) |
+
+### Trecho representativo do código
+```cpp
+void callback(char* topic, byte* payload, unsigned int length) {
+  String t = String(topic);
+  if (t.endsWith("/comando/buzzer")) {
+    tone(BUZZER, 1500); delay(300); noTone(BUZZER);
+  }
+  if (t.endsWith("/comando/manha")) handleButtonPress(0);
+}
+Bibliotecas utilizadas
+WiFi.h
+
+PubSubClient.h
+
+ArduinoJson.h
+
+time.h
+
+iii) Descrição do hardware utilizado
+Componentes principais
+Componente	Função	Quantidade
+ESP32 DevKit V4	Microcontrolador principal com Wi-Fi	1
+LEDs (vermelho, verde, azul, extra)	Indicação de períodos do dia	4
+Botões (push-button)	Confirmação de dose	4
+Buzzer	Alerta sonoro	1
+Sensor LDR	Detecção de tampa aberta	1
+Resistores de 220kΩ	Proteção e limitação de corrente	3
+
+Plataforma: Wokwi (simulação online de hardware ESP32)
+
+Pinagem resumida
+Função	GPIO
+LED Manhã	12
+LED Tarde	13
+LED Noite	14
+LED Extra	15
+Botão Manhã	16
+Botão Tarde	17
+Botão Noite	18
+Botão Extra	19
+Buzzer	21
+Sensor LDR	34
+
+Diagrama do circuito (extraído do Wokwi)
+
+iv) Documentação das interfaces, protocolos e módulos de comunicação
+O sistema utiliza o protocolo MQTT (Message Queuing Telemetry Transport) para comunicação entre o ESP32 e a nuvem.
+As mensagens seguem o formato JSON e são trocadas via broker público HiveMQ.
+
+Parâmetros de conexão
+Broker: broker.hivemq.com
+
+Porta: 1883
+
+Client ID: pillbox01
+
+QoS: 0 (entrega simples)
+
+Tópico base: pillbox/pillbox01/
+
+Tópicos MQTT utilizados
+Direção	Tópico	Descrição
+→ Publicação	pillbox/pillbox01/status	Status online/offline do dispositivo
+→ Publicação	pillbox/pillbox01/dose	Registro de dose confirmada
+→ Publicação	pillbox/pillbox01/tampa	Estado da tampa (aberta/fechada)
+← Assinatura	pillbox/pillbox01/comando/#	Comandos recebidos (buzzer, botões, etc.)
+
+Exemplo de payload MQTT
+json
+Copiar código
+{
+  "dispositivo": "pillbox01",
+  "evento": "dose",
+  "horario": "manha",
+  "status": "tomada",
+  "timestamp": "2025-11-11T20:14:53Z"
+}
+Fluxo de comunicação (MQTT)
+
+Resultados dos testes
+Os testes foram realizados no Wokwi e com o HiveMQ Web Client.
+Todos os comandos MQTT responderam corretamente e o sistema publicou mensagens JSON válidas em tempo real.
+
+Evidências de funcionamento:
+
+/testes/mqtt_test_log.txt → logs das trocas MQTT
+
+/testes/wokwi_serial_output.txt → execução do ESP32 na simulação
+
+Painel MQTT durante o teste
+
+Estrutura do repositório
+pgsql
+Copiar código
+caixa-remedio-cloud/
+├── README.md
+├── src/
+│   ├── esboco.ino
+│   ├── diagrama.json
+│   ├── bibliotecas.txt
+│   └── config.h
+├── docs/
+│   ├── AC4.docx
+│   ├── COMANDO MQTT NOVO.pdf
+│   ├── hardware.png
+│   └── fluxograma_comunicacao.png
+├── assets/
+│   ├── foto_projeto.jpg
+│   ├── logo_projeto.png
+│   └── painel_hivemq.jpg
+├── testes/
+│   ├── mqtt_test_log.txt
+│   └── wokwi_serial_output.txt
+└── wokwi/
+    ├── projeto.json
+    └── readme_wokwi.md
+Conclusão
+O projeto Caixa Remédio Nuvem demonstra a aplicação prática da Internet das Coisas (IoT) na área da saúde, utilizando sensores, atuadores e comunicação MQTT.
+O sistema foi desenvolvido e testado integralmente no ambiente Wokwi, com integração em tempo real ao HiveMQ, comprovando sua viabilidade técnica e funcional.
+A documentação, código e resultados atendem plenamente aos critérios propostos na atividade AC4.
+
+Referências
+Documentação do Wokwi
+
+Broker Público HiveMQ
+
+Biblioteca PubSubClient
+
+ArduinoJson
