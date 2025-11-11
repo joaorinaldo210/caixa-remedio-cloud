@@ -103,7 +103,7 @@ void handleButtonPress(int idx) {
 }
 
 // MQTT Callback
-def callback(char* topic, byte* payload, unsigned int length) {
+void callback(char* topic, byte* payload, unsigned int length) {
   String t = String(topic);
   Serial.print("MQTT CMD: "); Serial.println(t);
 
@@ -131,14 +131,14 @@ def callback(char* topic, byte* payload, unsigned int length) {
 }
 
 // ---- Conexões ----
-def conectarWiFi() {
+void conectarWiFi() {
   Serial.println(" Conectando ao WiFi...");
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) { delay(300); Serial.print("."); }
   Serial.println("\n✅ WiFi conectado");
 }
 
-def conectarMQTT() {
+void conectarMQTT() {
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
 
@@ -155,7 +155,7 @@ def conectarMQTT() {
   }
 }
 
-def setup() {
+void setup() {
   Serial.begin(115200);
   pinMode(LED_MANHA, OUTPUT);
   pinMode(LED_TARDE, OUTPUT);
@@ -173,7 +173,7 @@ def setup() {
   configTime(0,0,"pool.ntp.org");
 }
 
-def loop() {
+void loop() {
   if (!client.connected()) conectarMQTT();
   client.loop();
 
