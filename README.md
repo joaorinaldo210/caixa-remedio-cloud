@@ -156,6 +156,34 @@ As mensagens seguem o formato **JSON** e são trocadas via **broker público Hiv
   "timestamp": "2025-11-11T20:14:53Z"
 }
 ```
+Resultados e medições
+
+Durante os testes, foram realizadas medições de tempo de resposta entre os sensores, atuadores e a comunicação MQTT.
+
+**Tabela 1 – Latências agregadas (Sensor→MQTT e Comando→Atuador) do protótipo (ms). Fonte: Autor (2025).**  
+![Tabela de Latências](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/tabela_latencias.pdf)
+
+**Gráfico de desempenho das medições:**  
+![Gráfico de Medição](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/graficomedicao.png)
+
+Esses testes demonstraram um desempenho consistente, com tempos médios adequados para aplicações IoT em ambiente doméstico.
+
+---
+
+## 🎥 vi) Vídeo de demonstração
+
+Apresentação completa do projeto e funcionamento do protocolo MQTT (vídeo não listado):  
+👉 [Assista ao vídeo no YouTube](COLE_AQUI_O_LINK_DO_VÍDEO)
+
+---
+
+## 📸 vii) Testes e comunicação MQTT
+
+Durante a simulação e execução do firmware, foi verificada a comunicação bidirecional com o broker HiveMQ.
+
+**Logs e capturas de teste:**  
+![Teste MQTT](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/comunicacaoMQTT.png)  
+![Wokwi Serial Output](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/wokwi_serial_output.txt)
 
 ---
 
