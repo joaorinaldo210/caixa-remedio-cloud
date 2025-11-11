@@ -120,7 +120,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 | Buzzer | 21 |
 | Sensor LDR | 34 |
 
-### Diagrama do circuito (extraído do Wokwi)
+### Diagrama do lógico funcional da caixa de remédios
 ![Diagrama do Circuito](docs/hardware.png)
 
 ---
