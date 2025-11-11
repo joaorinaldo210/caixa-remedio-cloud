@@ -61,5 +61,50 @@ Payload: {"dispositivo":"pillbox01","evento":"dose","horario":"noite","status":"
 [STATUS] Sistema monitorando tampa e botões continuamente
 ----------------------------------------------------------
 
-[FIM DO LOG DE SIMULAÇÃO]
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+ Conectando ao WiFi...
+........
+✅ WiFi conectado
+ Conectando ao MQTT...
+✅ MQTT conectado
+MQTT → pillbox/pillbox01/status
+{"dispositivo":"pillbox01","evento":"status","status":"online","timestamp":"1970-01-01T00:00:09Z"}
+ Conectando ao MQTT...
+✅ MQTT conectado
+MQTT → pillbox/pillbox01/status
+{"dispositivo":"pillbox01","evento":"status","status":"online","timestamp":"1970-01-01T00:00:11Z"}
+MQTT → pillbox/pillbox01/dose
+{"dispositivo":"pillbox01","evento":"dose","horario":"manha","status":"tomada","timestamp":"2025-11-11T21:39:58Z"}
+MQTT → pillbox/pillbox01/dose
+{"dispositivo":"pillbox01","evento":"dose","horario":"manha","status":"tomada","timestamp":"2025-11-11T21:40:01Z"}
+MQTT → pillbox/pillbox01/dose
+{"dispositivo":"pillbox01","evento":"dose","horario":"tarde","status":"tomada","timestamp":"2025-11-11T21:40:03Z"}
+MQTT → pillbox/pillbox01/dose
+{"dispositivo":"pillbox01","evento":"dose","horario":"noite","status":"tomada","timestamp":"2025-11-11T21:40:04Z"}
+MQTT → pillbox/pillbox01/dose
+{"dispositivo":"pillbox01","evento":"dose","horario":"manha","status":"tomada","timestamp":"2025-11-11T21:40:05Z"}
+MQTT → pillbox/pillbox01/dose
+{"dispositivo":"pillbox01","evento":"dose","horario":"manha","status":"tomada","timestamp":"2025-11-11T21:40:06Z"}
+MQTT → pillbox/pillbox01/dose
+{"dispositivo":"pillbox01","evento":"dose","horario":"tarde","status":"tomada","timestamp":"2025-11-11T21:40:07Z"}
+MQTT → pillbox/pillbox01/dose
+{"dispositivo":"pillbox01","evento":"dose","horario":"noite","status":"tomada","timestamp":"2025-11-11T21:40:08Z"}
+MQTT → pillbox/pillbox01/dose
+{"dispositivo":"pillbox01","evento":"dose","horario":"extra","status":"tomada","timestamp":"2025-11-11T21:40:09Z"}
+ Conectando ao MQTT...
+✅ MQTT conectado
+MQTT → pillbox/pillbox01/status
+{"dispositivo":"pillbox01","evento":"status","status":"online","timestamp":"2025-11-11T21:40:10Z"}
+
 ==============================
+
