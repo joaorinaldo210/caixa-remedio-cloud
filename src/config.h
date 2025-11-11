@@ -1,9 +1,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-// Arquivo opcional de configuração. O código principal usa constantes internas.
-// Preencha se desejar externalizar SSID, MQTT e DEVICE_ID.
-
 #define WIFI_SSID "Wokwi-GUEST"
 #define WIFI_PASSWORD ""
 
