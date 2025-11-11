@@ -138,7 +138,7 @@ As mensagens seguem o formato **JSON** e são trocadas via **broker público Hiv
 
 ---
 
-## Estrutura do repositório
+## Estrutura do Repositório
 
 - `README.md` → documentação principal do projeto  
 - `src/` → código-fonte, diagrama e bibliotecas  
