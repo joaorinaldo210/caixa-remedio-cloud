@@ -182,7 +182,7 @@ Apresentação completa do projeto e funcionamento do protocolo MQTT (vídeo nã
 Durante a simulação e execução do firmware, foi verificada a comunicação bidirecional com o broker HiveMQ.
 
 **Logs e capturas de teste:**  
-![Teste MQTT](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/comunicacaoMQTT.png)  
+![Teste MQTT](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/testecomunicacaoMQTT.png)  
 ![Wokwi Serial Output](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/testes/wokwi_serial_output.txt)
 
 ---
