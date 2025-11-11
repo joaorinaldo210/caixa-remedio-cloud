@@ -75,6 +75,25 @@ void callback(char* topic, byte* payload, unsigned int length) {
 ## iii) Descrição do hardware utilizado
 
 ### Componentes principais
+
+### 🔹 Componentes do Projeto
+
+**ESP32:**
+![ESP32](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/esp32.png)
+
+**Sensor LDR:**
+![Sensor LDR](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/sensor_ldr.png)
+
+**Buzzer:**
+![Buzzer](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/buzzer.png)
+
+**LEDs:**
+![LEDs](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/leds.png)
+
+**Botões:**
+![Botões](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/botoes.png)
+
+
 | Componente | Função | Quantidade |
 |---|---:|---:|
 | ESP32 DevKit V4 | Microcontrolador principal com Wi-Fi | 1 |
