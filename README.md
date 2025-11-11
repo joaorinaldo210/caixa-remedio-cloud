@@ -1,8 +1,8 @@
 # Projeto IoT / Artigo_CaixaRemedios_Inteligente
-Desenvolvido por: João Rinaldo, Pyettro Ziroldo e Everton Cícero
+Desenvolvido por: João Rinaldo, Bruno Otávio Ramos, Gabriel Matheus Soares de Carvalho
 Faculdade Presbiteriana Mackenzie
 Curso: Análise e Desenvolvimento de Sistemas
-Atividade: AC4 — Internet das Coisas (IoT)
+Atividade: AC4 — Aplicando conhecimento 4 (IoT)
 Ano: 2025
 
 ## 1. Descrição do funcionamento e uso
