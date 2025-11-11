@@ -1,0 +1,65 @@
+==============================
+WOKWI SERIAL OUTPUT - PROJETO CAIXA REMÉDIO NUVEM
+Data: 11/11/2025
+Simulador: Wokwi (ESP32 DevKit V4)
+Autor: João Rinaldo, Bruno Otávio Ramos, Gabriel Matheus Soares de Carvalho
+==============================
+
+[BOOT] Iniciando sistema...
+[INFO] Configurando pinos e sensores...
+[INFO] LEDs: Manhã=GPIO12 | Tarde=GPIO13 | Noite=GPIO14 | Extra=GPIO15
+[INFO] Botões: Manhã=GPIO16 | Tarde=GPIO17 | Noite=GPIO18 | Extra=GPIO19
+[INFO] Buzzer=GPIO21 | LDR=GPIO34
+[INFO] Inicializando comunicação serial a 115200 bps
+[INFO] Configurando NTP (pool.ntp.org) para sincronização de horário UTC
+
+[Wi-Fi] Conectando ao WiFi (Wokwi-GUEST)...
+.....✅ WiFi conectado com sucesso
+Endereço IP: 192.168.0.101
+
+[MQTT] Conectando ao broker HiveMQ...
+✅ Conectado ao broker: broker.hivemq.com:1883
+ID do dispositivo: pillbox01
+Assinando tópico: pillbox/pillbox01/comando/#
+
+[MQTT] Publicado → pillbox/pillbox01/status
+Payload: {"dispositivo":"pillbox01","evento":"status","status":"online","timestamp":"2025-11-11T19:42:03Z"}
+
+[SISTEMA] Sistema inicializado e pronto para operação.
+----------------------------------------------------------
+
+[AÇÃO] Botão “manhã” pressionado
+→ LED GPIO12 ativado
+→ Publicado: pillbox/pillbox01/dose
+Payload: {"dispositivo":"pillbox01","evento":"dose","horario":"manha","status":"tomada","timestamp":"2025-11-11T19:43:12Z"}
+→ LED GPIO12 desligado
+
+[AÇÃO] Tampa aberta detectada pelo LDR
+→ Publicado: pillbox/pillbox01/tampa
+Payload: {"sensor":"tampa","status":"aberta","timestamp":"2025-11-11T19:44:01Z"}
+→ Buzzer emitido (1500 Hz por 300ms)
+
+[AÇÃO] Tampa fechada novamente
+→ Publicado: pillbox/pillbox01/tampa
+Payload: {"sensor":"tampa","status":"fechada","timestamp":"2025-11-11T19:44:12Z"}
+
+[AÇÃO] Comando MQTT recebido: pillbox/pillbox01/comando/buzzer
+→ Buzzer ativado via comando remoto
+→ Publicado: pillbox/pillbox01/buzzer
+Payload: {"evento":"buzzer","status":"ativado","timestamp":"2025-11-11T19:45:02Z"}
+
+[AÇÃO] Comando MQTT recebido: pillbox/pillbox01/comando/noite
+→ Simulando dose noturna (botão virtual)
+→ LED GPIO14 ativado
+→ Publicado: pillbox/pillbox01/dose
+Payload: {"dispositivo":"pillbox01","evento":"dose","horario":"noite","status":"tomada","timestamp":"2025-11-11T19:45:15Z"}
+→ LED GPIO14 desligado
+
+----------------------------------------------------------
+[STATUS] Todos os sensores operacionais
+[STATUS] Conexão MQTT estável
+[STATUS] Sistema monitorando tampa e botões continuamente
+----------------------------------------------------------
+
+[FIM DO LOG DE SIMULAÇÃO]
+==============================
