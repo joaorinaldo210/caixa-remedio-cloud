@@ -100,8 +100,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 | Sensor LDR | 34 |
 
 ### Diagrama do circuito (extraído do Wokwi)
-![Diagrama do Circuito](<img width="1299" height="1213" alt="hardware" src="https://github.com/user-attachments/assets/22f76abf-6f79-4524-b250-a0681c68f1a8" />
-)
+![Diagrama do Circuito](docs/hardware.png)
 
 ---
 
