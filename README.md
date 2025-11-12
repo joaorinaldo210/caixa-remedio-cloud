@@ -197,9 +197,8 @@ Durante a simulação e execução do firmware, foi verificada a comunicação b
 
 ## Conclusão
 
-O projeto **Caixa Remédio Nuvem** demonstra a aplicação prática da Internet das Coisas (IoT) na área da saúde, utilizando sensores, atuadores e comunicação MQTT.  
-O sistema foi desenvolvido e testado integralmente no ambiente **Wokwi**, com integração em tempo real ao **HiveMQ**, comprovando sua viabilidade técnica e funcional.  
-A documentação, código e resultados atendem plenamente aos critérios propostos na atividade AC4.
+O protótipo da **Caixa de Remédios Inteligente** demonstrou que é possível apoiar a adesão terapêutica com uma solução de baixo custo baseada em **ESP32** e comunicação **MQTT**.  
+A combinação de confirmação de dose por botões, feedback local por **LEDs e buzzer**, e publicação de eventos em tópicos específicos validou, em simulação no **Wokwi**, o fluxo essencial de uso do sistema, comprovando sua viabilidade técnica e funcional.
 
 ---
 
