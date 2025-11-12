@@ -11,7 +11,7 @@ Simulação Wokwi: https://wokwi.com/projects/446834998824109057
 
 ---
 
-## i) Descrição do funcionamento e uso
+## Descrição do funcionamento e uso
 
 O projeto **Caixa Remédio Nuvem** é um sistema IoT desenvolvido para auxiliar no controle de medicação.  
 O dispositivo, baseado no **ESP32**, possui **LEDs indicativos**, **botões de confirmação de dose**, **sensor LDR para detecção de tampa aberta** e **buzzer de alerta**.  
@@ -30,7 +30,7 @@ Ele se conecta via **Wi-Fi** a um **broker MQTT (HiveMQ)**, enviando e recebendo
 
 ---
 
-## ii) Software desenvolvido e documentação de código
+## Software desenvolvido e documentação de código
 
 O software foi desenvolvido em **C++ (Arduino)** para o microcontrolador **ESP32 DevKit V4**.  
 O código principal está localizado em `src/esboco.ino`, totalmente comentado e modularizado.
@@ -72,11 +72,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 ---
 
-## iii) Descrição do hardware utilizado
+## Descrição do hardware utilizado
 
 ### Componentes principais
-
-### 🔹 Componentes do Projeto
 
 **ESP32:**
 ![ESP32](https://github.com/joaorinaldo210/caixa-remedio-cloud/blob/main/assets/esp32.png)
@@ -125,7 +123,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 ---
 
-## iv) Documentação das interfaces, protocolos e módulos de comunicação
+## Documentação das interfaces, protocolos e módulos de comunicação
 
 O sistema utiliza o **protocolo MQTT (Message Queuing Telemetry Transport)** para comunicação entre o ESP32 e a nuvem.  
 As mensagens seguem o formato **JSON** e são trocadas via **broker público HiveMQ**.
@@ -170,14 +168,14 @@ Esses testes demonstraram um desempenho consistente, com tempos médios adequado
 
 ---
 
-## vi) Vídeo de apresentação
+## Vídeo de apresentação
 
 Apresentação completa do projeto e funcionamento do protocolo MQTT (PENDENTE):  
  [Assista ao vídeo no YouTube](COLE_AQUI_O_LINK_DO_VÍDEO)
 
 ---
 
-## vii) Testes e comunicação MQTT
+## Testes e comunicação MQTT
 
 Durante a simulação e execução do firmware, foi verificada a comunicação bidirecional com o broker HiveMQ.
 
