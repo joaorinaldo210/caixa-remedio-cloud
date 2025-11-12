@@ -205,7 +205,9 @@ A documentação, código e resultados atendem plenamente aos critérios propost
 
 ## Referência
 
-- Documentação do Wokwi — https://docs.wokwi.com/  
-- Broker Público HiveMQ — https://www.hivemq.com/demos/websocket-client/  
-- Biblioteca PubSubClient — https://pubsubclient.knolleary.net/  
-- ArduinoJson — https://arduinojson.org/
+- WOKWI. Online Arduino and ESP32 Simulator — https://wokwi.com/  
+- HIVE MQ. MQTT Essentials — https://www.hivemq.com/blog/mqtt-essentials-part-1-introducing-mqtt/  
+- PubSubClient — https://github.com/knolleary/pubsubclient  
+- ArduinoJson — https://arduinojson.org/  
+- ESPRESSIF SYSTEMS. ESP32 Datasheet — https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf  
+- pool.ntp.org — Rede pública de sincronização NTP — https://www.pool.ntp.org/
